@@ -47,8 +47,8 @@ export const loadAccount = async (dispatch) => {
   return account;
 };
 
-// ------------------------------------------------------------------------------
 // LOAD CONTRACTS
+
 export const loadTokens = async (provider, chainId, dispatch) => {
   const crca = new ethers.Contract(
     config[chainId].crca.address,
@@ -77,8 +77,8 @@ export const loadAMM = async (provider, chainId, dispatch) => {
   return amm;
 };
 
-// ------------------------------------------------------------------------------
 // LOAD BALANCES & SHARES
+
 export const loadBalances = async (amm, tokens, account, dispatch) => {
   const balance1 = await tokens[0].balanceOf(account);
   const balance2 = await tokens[1].balanceOf(account);
@@ -94,8 +94,8 @@ export const loadBalances = async (amm, tokens, account, dispatch) => {
   dispatch(sharesLoaded(ethers.utils.formatUnits(shares.toString(), "ether")));
 };
 
-// ------------------------------------------------------------------------------
 // ADD LIQUDITY
+
 export const addLiquidity = async (
   provider,
   amm,
@@ -131,8 +131,8 @@ export const addLiquidity = async (
   }
 };
 
-// ------------------------------------------------------------------------------
 // REMOVE LIQUDITY
+
 export const removeLiquidity = async (provider, amm, shares, dispatch) => {
   try {
     dispatch(withdrawRequest());
@@ -148,7 +148,6 @@ export const removeLiquidity = async (provider, amm, shares, dispatch) => {
   }
 };
 
-// ------------------------------------------------------------------------------
 // SWAP
 
 export const swap = async (provider, amm, token, symbol, amount, dispatch) => {
@@ -176,7 +175,6 @@ export const swap = async (provider, amm, token, symbol, amount, dispatch) => {
   }
 };
 
-// ------------------------------------------------------------------------------
 // LOAD ALL SWAPS
 
 export const loadAllSwaps = async (provider, amm, dispatch) => {
