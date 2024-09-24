@@ -34,10 +34,10 @@ const Navigation = () => {
     <Navbar className="my-3" expand="lg">
       <a href="/">
         <img
-          alt="logo"
           src={logo}
-          width="40"
-          height="40"
+          alt="logo"
+          width="134.5"
+          height="61"
           className="d-inline-block align-top mx-3"
         />
       </a>
